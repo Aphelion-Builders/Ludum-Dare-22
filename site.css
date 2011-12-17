@@ -30,10 +30,9 @@ a:hover
 {
   background: url("images/startscreen.png");
   width: 1024px;
-  height: 480px;
+  height: 576px;
   position: absolute;
   z-index: 100;
-  padding-top: 250px;
   text-align: center;
   color: white;
 }
