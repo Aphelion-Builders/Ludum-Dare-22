@@ -10,11 +10,22 @@
 					margin: 0;
 					padding: 0;
 					background: black;
+					font-family: Helvetica, Arial;
+				}
+				
+				a, a:active, a:visited 
+				{
+				  text-decoration: none;
+				  color: #00F;
+				}
+				a:hover 
+				{
+				  color: #30F;
 				}
 				
 				#welcomeScreen
 				{
-				  background: url("images/startscreen.png");
+				  background: url("backgrounds/startscreen.png");
 				  width: 1024px;
 				  height: 576px;
 				  position: absolute;
@@ -38,13 +49,13 @@
             </style>
 		</head>
 		<body>
-			<div id="playground" style="width: 700px; height: 250px; background: black;">
+			<div id="playground" style="width: 1024px; height: 576px; background: black;">
 				<div id="welcomeScreen">
 					<div style="position: absolute; top: 120px; width: 700px; color: white;">
-						<div id="loadingBar" ></div><br />
-						<center><a style="cursor: pointer;" id="startbutton">
-						Click here to start!
+						<center><a style="cursor: pointer; position: absolute" id="startbutton">
+						<h1>Click here to start!</h1>
 						</a></center>
+						<div id="loadingBar" ></div><br />
 					</div>
 				</div>
           </div>

@@ -28,7 +28,7 @@ a:hover
 
 #welcome-screen
 {
-  background: url("images/startscreen.png");
+  background: url("backgrounds/startscreen.png");
   width: 1024px;
   height: 576px;
   position: absolute;

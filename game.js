@@ -18,7 +18,13 @@ function Player(node){
 
 $(function()
 {
-	var background1 = new $.gameQuery.Animation({imageURL: "images/background1.png"});
+	var background1 = new $.gameQuery.Animation({imageURL: "backgrounds/background1.png"});
+
+	playerAnimation["right"]	= new $.gameQuery.Animation({imageURL: "player/golem_right.png"});
+	playerAnimation["left"]		= new $.gameQuery.Animation({imageURL: "player/golem_left.png"});
+	playerAnimation["up"]		= new $.gameQuery.Animation({imageURL: "player/golem_up.png"});
+	playerAnimation["down"]		= new $.gameQuery.Animation({imageURL: "player/golem_down.png"});
+
 	// Initialize the game:
 	$("#playground").playground({height: PLAYGROUND_HEIGHT, width: PLAYGROUND_WIDTH, keyTracker: true});
 	$.playground().addGroup("background", {width: PLAYGROUND_WIDTH, height: PLAYGROUND_HEIGHT})
@@ -38,9 +44,50 @@ $(function()
 	$().setLoadBar("loadingBar", 400);
 	
 	//initialize the start button
-	$("#startbutton").click(function(){
-		$.playground().startGame(function(){
+	$("#startbutton").click(function()
+	{
+		$.playground().startGame(function()
+		{
 			$("#welcomeScreen").fadeTo(1000,0,function(){$(this).remove();});
-		});
-	})
+		})
+	});
+
+	$(document).keydown(function(e)
+	{
+		switch(e.keyCode)
+		{
+			case 65: //this is left! (a)
+				$("#playerBooster").setAnimation(playerAnimation["left"]);
+				break;
+			case 87: //this is up! (w)
+				$("#playerBoostUp").setAnimation(playerAnimation["up"]);
+				break;
+			case 68: //this is right (d)
+				$("#playerBooster").setAnimation(playerAnimation["right"]);
+				break;
+			case 83: //this is down! (s)
+				$("#playerBoostDown").setAnimation(playerAnimation["down"]);
+				break;
+		}
+	});
+
+	//this is where the keybinding occurs
+	$(document).keyup(function(e)
+	{
+			switch(e.keyCode)
+			{
+				case 65: //this is left! (a)
+					$("#playerBooster").setAnimation(playerAnimation["boost"]);
+					break;
+				case 87: //this is up! (w)
+					$("#playerBoostUp").setAnimation();
+					break;
+				case 68: //this is right (d)
+					$("#playerBooster").setAnimation(playerAnimation["boost"]);
+					break;
+				case 83: //this is down! (s)
+					$("#playerBoostDown").setAnimation();
+					break;
+			}
+	});
 });
